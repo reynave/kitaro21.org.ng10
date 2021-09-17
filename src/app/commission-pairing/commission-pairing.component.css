@@ -1,0 +1,14 @@
+h5{
+    font-size: 18px;
+}
+
+table{
+    width: 100%;
+}
+ 
+div small{
+    line-height: 100% !important; 
+}
+.tablestyle1 tr td{
+   font-size: 12px;
+}

@@ -1,0 +1,18 @@
+<div>
+    <p>Please input your security key :</p>
+</div>
+<div class="form-key">
+    <input type="password" class="bg-light" [(ngModel)]="key.input1" (keyup)="onKey(1)" maxlength="1" style="border-left: 1px solid #999;" id="key1" pattern="[0-9]">
+    <input type="password" class="bg-light" [(ngModel)]="key.input2" (keyup)="onKey(2)" maxlength="1" pattern="[0-9]" id="key2">
+    <input type="password" class="bg-light" [(ngModel)]="key.input3" (keyup)="onKey(3)" maxlength="1" pattern="[0-9]" id="key3">
+    <input type="password" class="bg-light" [(ngModel)]="key.input4" (keyup)="onKey(4)" maxlength="1" pattern="[0-9]" id="key4">
+    <input type="password" class="bg-light" [(ngModel)]="key.input5" (keyup)="onKey(5)" maxlength="1" pattern="[0-9]" id="key5">
+    <input type="password" class="bg-light" [(ngModel)]="key.input6" maxlength="1" pattern="[0-9]" id="key6">
+</div>
+<div class="mb-2"> 
+    <a [routerLink]="[ '/profile/edit' ]"><small>forget security key ?</small></a>
+</div>
+<div>
+    <span [hidden]="!loading">Loading...</span>
+    <button type="button" class="btn btn-primary  mx-2" (click)="onSubmit();">Process</button>
+</div>

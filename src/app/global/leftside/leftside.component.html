@@ -1,0 +1,86 @@
+ <!-- partial:partials/_sidebar.html -->
+ <nav class="sidebar">
+    <div class="sidebar-header">
+        <a href="#" class="sidebar-brand">
+            {{title}}<sup><span>{{subtitle}}</span> </sup>
+        </a>
+        <div class="sidebar-toggler not-active">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="sidebar-body">
+        <ul class="nav">
+            
+            <li class="nav-item" [hidden]="verified == '100'">
+                <a  [routerLink]="[ '/profile/verify' ]" class="nav-link text-danger">
+                    <i class="link-icon" data-feather="alert-triangle"></i>
+                    <span class="link-title">Waiting Payment</span>
+                </a>
+            </li> 
+
+            <li class="nav-item nav-category">Menu</li>
+           
+            <li class="nav-item {{active == 'home' ? 'active' : false}}">
+                <a [routerLink]="[ '/' ]" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title">Dashboard</span>
+                </a>
+            </li>
+        
+            <li class="nav-item {{active == 'eaForm' ? 'active' : false}}">
+                <a  [routerLink]="[ '/eaForm' ]" class="nav-link">
+                    <i class="link-icon" data-feather="award"></i>
+                    <span class="link-title">EA Activation <code>Off</code> </span>
+                </a>
+            </li>
+            
+ 
+            <li class="nav-item {{active == 'inbox' ? 'active' : false}}">
+                <a [routerLink]="[ '/inbox' ]" class="nav-link">
+                    <i class="link-icon" data-feather="mail"></i>
+                    <span class="link-title">Inbox </span> 
+                </a>
+            </li>
+  
+        
+            <li class="nav-item {{active == 'familyTree' ? 'active' : false}}">
+                <a [routerLink]="[ '/familyTree' ]" class="nav-link">
+                    <i class="link-icon" data-feather="user"></i>
+                    <span class="link-title">Family Tree</span>
+                </a>
+            </li>
+ 
+            <li class="nav-item {{active == 'referal' ? 'active' : false}}">
+                <a  [routerLink]="[ '/referal' ]" class="nav-link">
+                    <i class="link-icon" data-feather="award"></i>
+                    <span class="link-title">Reference Link </span>
+                </a>
+            </li>
+            
+        
+
+            <li class="nav-item nav-category">Commission</li>
+
+            <li class="nav-item {{active == 'comPairing' ? 'active' : false}}">
+                <a  [routerLink]="[ '/comPairing' ]" class="nav-link">
+                    <i class="link-icon" data-feather="triangle"></i>
+                    <span class="link-title">Profit Sharing </span>
+                </a>
+            </li>
+            <li class="nav-item {{active == 'comPairing' ? 'active' : false}}">
+                <a  [routerLink]="[ '/comPairing' ]" class="nav-link">
+                    <i class="link-icon" data-feather="award"></i>
+                    <span class="link-title">Rebate </span>
+                </a>
+            </li>
+
+ 
+        
+         
+          
+
+        </ul>
+    </div>
+</nav>

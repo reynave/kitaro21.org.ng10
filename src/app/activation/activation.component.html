@@ -1,0 +1,45 @@
+<div class="main-wrapper">
+    <div class="page-wrapper full-page">
+        <div class="page-content d-flex align-items-center justify-content-center">
+
+            <div class="row w-100 mx-0 auth-page">
+                <div class="col-md-8 col-xl-6 mx-auto d-flex flex-column align-items-center">
+                    <h1>
+                        <img src="./assets/images/VISION88-Hitam.png" width="100%">
+
+                    </h1>
+                    <h4 class="mb-2">Welcome Vision88</h4>
+                    <h6 class="text-muted mb-3 text-center">
+                        <a href="javascript:;" data-toggle="modal" data-target="#exampleModal">
+                            <img src="./assets/images/checked-{{agree}}.png" width="30" class="mx-2">Yes I agree with <b>"Kode Etik"</b> agreement
+                        </a>
+                    </h6>
+                    <button type="button" [disabled]="!agree" (click)="onActivate();" class="btn btn-primary">Activated Account Now</button>
+                </div>
+
+                 
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade modal-fullscreen" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <strong class="modal-title"><em> Kode Etik</em> (Scroll down for agreement) </strong>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <iframe frameBorder="0" style="overflow:hidden;height:100%;width:100%" [src]="urlSafe"></iframe>
+            </div>
+            <div class="text-center py-1">
+                <button type="button" class="btn btn-primary px-5" data-dismiss="modal" (click)="onAgree()">Yes, I agree.</button>
+            </div>
+        </div>
+    </div>
+</div>

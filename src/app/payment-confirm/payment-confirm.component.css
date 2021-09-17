@@ -1,0 +1,24 @@
+.main-wrapper .page-wrapper.full-page { 
+    background:  #333;
+    background-size: cover;
+    color:#fff;
+}
+.wrapper{
+    max-width: 600px;
+    margin: 0 auto;
+}
+.form-control{
+    background:none;
+    color: #fff;
+    border-radius: 0px;
+    border: 1px solid #8a8a8a;
+}
+
+
+hr{
+    border-top: 2px solid #8a8a8a !important;
+}
+
+option{
+    color: #000;;
+}

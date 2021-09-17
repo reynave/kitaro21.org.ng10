@@ -1,0 +1,63 @@
+<div class="main-wrapper">
+
+    <app-leftside></app-leftside>
+
+    <div class="page-wrapper">
+
+        <app-topside></app-topside>
+
+        <div class="page-content">
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="alert alert-info">
+                    
+                        <div class="row mt-2">
+                            <div class="col-12 col-md-4">Total Commission In 1 Year
+                                <h4>Rp {{year | number}}</h4>
+                            </div>
+
+                            <div class="col-12 col-md-4">Total Commission In 1 Month
+                                <h4>Rp {{month | number}}</h4>
+                            </div>
+
+                            <div class="col-12 col-md-4">Total Commission In 1 Week
+                                <h4>Rp {{weekly | number}}</h4>
+                            </div>
+
+                        </div>
+                    </div>
+                    <table id="example" class="display excel" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Joining Date</th>
+                                <th>Name</th>
+                                <th>Package</th>
+                                <th>Transaction Code</th>
+                                <th class="text-right">Amount</th> 
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let x of items">
+                                <td>{{x.input_date | date:'medium'}}</td>
+
+                                <td> {{x.name}} </td>
+                                <td> {{x.ebook}} </td>
+                                <td><a href="javascript:;"><code>{{x.transactionCode}}</code></a></td>
+                                <td class="text-right">Rp {{x.amount | number}}</td> 
+                                
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+
+        <app-footer></app-footer>
+
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="main-wrapper">
+
+    <app-leftside></app-leftside>
+
+    <div class="page-wrapper">
+
+        <app-topside></app-topside>
+
+        <div class="page-content">
+            <div class="card">
+                <div class="p-1">
+                    <table id="example" class="display excel" style="width:100%">
+                        <thead>
+                            <tr> 
+                                <th width="200">Date</th>
+                                <th>Title</th>
+                                <th>Read</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let x of items"> 
+                                <td>{{x.sendDate | date:'short'}}</td>
+                                <td><a href="javascript:;" (click)="open(content,x)">{{x.subject}}</a></td>
+                                <td><span id="inbox{{x.id}}">{{x.status == '0' ? 'New' : 'Read' }}  </span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+           
+        </div>
+
+        <app-footer></app-footer>
+
+    </div>
+</div>
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <strong class="modal-title" id="modal-basic-title">{{obj.subject}}</strong>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+     
+      <div class="p-2 bg-light border">
+         <iframe  [src]="url" width="100%" style="width:100%;  border:none; margin:0; padding:0; overflow:hidden; " height="500px"></iframe>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+    </div>
+</ng-template>
+  

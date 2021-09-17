@@ -1,0 +1,60 @@
+<div class="main-wrapper">
+
+    <app-leftside></app-leftside>
+
+    <div class="page-wrapper mb-5">
+
+        <app-topside></app-topside>
+        <div class="page-content">
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="text-center">
+                        <p>Forgot Your Security Key ? </p>
+                        <button type="button" class="btn btn-sm btn-primary"  (click)="open(content)" >Request new Security Key</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <strong class="modal-title" id="modal-basic-title">Create new Securty Key</strong>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-12 mb-3">
+                <label>Your Securty Key</label> 
+                <div class="form-key">
+                    <input type="password" class="bg-light" [(ngModel)]="key.input1" (keyup)="onKey(1)" maxlength="1" style="border-left: 1px solid #999;" id="key1" pattern="[0-9]">
+                    <input type="password" class="bg-light" [(ngModel)]="key.input2" (keyup)="onKey(2)" maxlength="1" pattern="[0-9]" id="key2">
+                    <input type="password" class="bg-light" [(ngModel)]="key.input3" (keyup)="onKey(3)" maxlength="1" pattern="[0-9]" id="key3">
+                    <input type="password" class="bg-light" [(ngModel)]="key.input4" (keyup)="onKey(4)" maxlength="1" pattern="[0-9]" id="key4">
+                    <input type="password" class="bg-light" [(ngModel)]="key.input5" (keyup)="onKey(5)" maxlength="1" pattern="[0-9]" id="key5"> 
+                    <input type="password" class="bg-light" [(ngModel)]="key.input6"   maxlength="1" pattern="[0-9]" id="key6">  
+                </div> 
+                <small>Your key : <code> {{key.input1}} {{key.input2}} {{key.input3}} {{key.input4}} {{key.input5}} {{key.input6}} </code> </small>
+            </div>
+            <div class="col-12"> 
+                <label>Password</label>
+                <input type="password" [(ngModel)]="password" class="form-control form-control-sm" autocomplete="off" >
+            </div>
+        </div>
+
+
+    </div>
+    <div class="modal-footer">
+        <span [hidden]="!loading">Loading...</span>
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+
+        <button type="button" class="btn btn-primary" (click)="onSubmit();">Submit</button>
+    </div>
+</ng-template>
+ 

@@ -1,0 +1,60 @@
+<div class="main-wrapper">
+
+    <app-leftside></app-leftside>
+
+    <div class="page-wrapper">
+
+        <app-topside></app-topside>
+
+        <div class="page-content">
+            <div class="card p-2 mb-2">
+                <table>
+                    <tr>
+                        <td width="150"> My referral link :</td>
+                        <td><input type="text" class="form-control form-control-sm" readonly #userinput value="{{referral}}"> </td>
+                        <td>
+                            <button (click)="copyInputMessage(userinput)" class="btn btn-sm btn-primary mx-2" value="click to copy">Copy Text</button>
+                        </td>
+                    </tr>
+                </table>
+
+            
+            </div>
+
+            <div class="card p-2">
+
+                <table id="example" class="display excel" style="width:100%">
+                    <thead>
+                        <tr>
+                            <td class="text-center">No</td>
+                            <td>ID</td>
+                            <td>Name</td>
+                            <td>email</td>
+                            <td>Joining Date</td>
+                            <td>EA Status</td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let x of items; let i = index">
+                            <td class="text-center">{{i+1}}</td>
+                            <td>
+                                <a [routerLink]="[ '/user/detail', x.id ]"><code>{{x.id}}</code></a>
+                            </td>
+                            <td>{{x.name}}</td>
+                            <td>{{x.email}}</td>
+
+                            <td>{{x.input_date | date}}</td>
+                            <td>{{x.statusName}}</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+
+        <app-footer></app-footer>
+
+    </div>
+</div>

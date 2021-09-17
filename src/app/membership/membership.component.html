@@ -1,0 +1,155 @@
+<div class="main-wrapper">
+    <div class="page-wrapper full-page">
+        <div class="page-content">
+            <div class="wrapper">
+                <container-element [ngSwitch]="asFinish">
+
+                    <some-element *ngSwitchCase="0">
+                        <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+
+                            <div class="container">
+                                <div class="row no-gutters">
+                                    <div class="col-12 text-center mb-3">
+                                        <b>FORMULIR APLIKASI CLUB MEMBERSHIP </b>
+                                        <h4> {{referall.community}} CLUB - COFFEETALK INDONESIA </h4>
+                                    </div>
+
+
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label for="name">Referall Code</label>
+                                            <input type="text" class="form-control form-control-sm" readonly value="{{referall.ref}}">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label for="name">Invited By </label>
+                                            <input type="text" class="form-control form-control-sm" readonly value="{{referall.name}}">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-12">
+                                        <hr>
+                                    </div>
+
+
+
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label for="name">Nama Depan</label>
+                                            <input type="text" class="form-control form-control-sm" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel">
+                                            <small [hidden]="name.valid || name.pristine" class="text-danger">
+                                                Name is required
+                                            </small>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label for="name">Last Name</label>
+                                            <input type="text" class="form-control form-control-sm" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel">
+                                            <small [hidden]="name.valid || name.pristine" class="text-danger">
+                                                Name is required
+                                            </small>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="email" class="form-control form-control-sm" id="email" required [(ngModel)]="model.email" name="email" #email="ngModel" email="true" (change)="onCheckEmail();">
+                                            <small [hidden]="email.valid || email.pristine" class="text-danger">
+                                                Email is required
+                                            </small>
+                                            <small>{{noteEmail}}</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label for="p1">Password</label>
+                                            <input type="password" class="form-control form-control-sm" id="password" required [(ngModel)]="model.password" name="password" #password="ngModel">
+                                            <small [hidden]="password.valid || password.pristine" class="text-danger">
+                                                Password is required
+                                            </small>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label for="p2">Confirm Password</label>
+                                            <input type="password" class="form-control form-control-sm" id="password" required [(ngModel)]="model.password" name="password" #password="ngModel">
+                                            <small [hidden]="password.valid || password.pristine" class="text-danger">
+                                                Password is required
+                                            </small>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="alert text-center text-warning">
+                                            {{node}}
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="btn btn-success px-5 my-2" [disabled]="!heroForm.form.valid || !sign">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </some-element>
+
+                    <some-element *ngSwitchCase="1">
+                        <div class="my-5">
+                            <div class="rounded-sm alert text-center border-warning shadow-sm">
+                                <h4>Confirm your Email</h4>
+                                <p>Please check your inbox for a confirmation email. Click the link in the email to confirm your email address.</p>
+
+                                <p>Or input code from confirmation email:<br>
+                                    <input type="text" class="text-center" maxlength="6" [(ngModel)]="code">
+                                </p>
+                                <button type="button" class="btn btn-warning" (click)="onConfirmCode();" [disabled]="!code">Submit</button>
+                             <div class="mt-2">
+                                <p>  {{node}}</p>
+                             </div>
+                            </div>
+                        </div>
+                    </some-element>
+
+                    <some-element *ngSwitchDefault>
+
+                        <div class="container">
+                            <div class="row no-gutters">
+                                <div class="col-12 text-center mb-3">
+                                    <b>FORMULIR APLIKASI CLUB MEMBERSHIP </b>
+                                    <h4>CLUB OF COFFEETALK INDONESIA </h4>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="ref">Please Input Your Reference Link :</label>
+                                        <input type="text" class="form-control form-control-sm" id="refCode" required [(ngModel)]="refCode">
+
+                                    </div>
+                                    <div class="my-2">
+                                        <button type="button" class="btn btn-warning" (click)="onRefCode();" [disabled]="!refCode">Next</button>
+                                        <span class="mx-2 text-danger">{{node}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </some-element>
+
+
+                </container-element>
+            </div>
+        </div>
+    </div>
+</div>
