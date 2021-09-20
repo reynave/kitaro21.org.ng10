@@ -15,6 +15,7 @@ declare var $;
 export class ReferalComponent implements OnInit {
   items : any = [];
   referral : string;
+  asCopy : boolean = false;
   constructor(
     private http: HttpClient,
     private configService: ConfigService,
@@ -28,22 +29,26 @@ export class ReferalComponent implements OnInit {
     this.getHttp();
   }
 
-
+  verified:boolean=false;
   getHttp() {
    
     this.http.get<any>(environment.api + "customer/index/", {
       headers: this.configService.headers()
     }).subscribe(
       data => {   
+        this.verified = data['verified'];
+        console.log(data);
         $(document).ready(function () {
           $('#example').DataTable({ 
             order: [[ 2, "asc" ]],
             lengthMenu: [ 20, 50, 100, 200, 500],
           });
         });
-        this.referral =  environment.from+"?ref="+data['referral'];
-        this.items = data['items'];
-        console.log(data);
+        if( !data['verified'] ){
+          this.router.navigate(['notfound']);
+        }
+        this.referral =  environment.coffeetalk+"membership?ref="+data['referral'];
+        this.items = data['items']; 
         this.configService.relogin(data);
       },
       error => {
@@ -57,6 +62,7 @@ export class ReferalComponent implements OnInit {
     inputElement.select();
     document.execCommand('copy');
     inputElement.setSelectionRange(0, 0);
+    this.asCopy = true;
   }
 
 }

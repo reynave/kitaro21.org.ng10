@@ -17,28 +17,18 @@ import { TreeModule } from '@circlon/angular-tree-component';
 import { CurrencyMaskConfig, CurrencyMaskModule, CURRENCY_MASK_CONFIG } from 'ng2-currency-mask';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ReloginComponent } from './login/relogin/relogin.component'; 
-import { MemberComponent } from './member/member.component';
+import { ReloginComponent } from './login/relogin/relogin.component';  
 import { TransactionComponent } from './transaction/transaction.component'; 
 import {AutocompleteLibModule} from 'angular-ng-autocomplete'; 
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
 import { ActivationComponent } from './activation/activation.component'; 
-import { ProfitSharingComponent } from './profit-sharing/profit-sharing.component'; 
-import { CommissionSponsorComponent } from './commission-sponsor/commission-sponsor.component';
-import { CommissionPassupComponent } from './commission-passup/commission-passup.component';
-import { CommissionPairingComponent } from './commission-pairing/commission-pairing.component';
-import { CommissionRewardComponent } from './commission-reward/commission-reward.component';
-import { MemberParentComponent } from './member/member-parent/member-parent.component';  
-import { PairingDetailComponent } from './commission-pairing/pairing-detail/pairing-detail.component'; 
+import { ProfitSharingComponent } from './profit-sharing/profit-sharing.component';    
 
 import {ConnectionServiceModule} from 'ngx-connection-service';
 import { InboxComponent } from './inbox/inbox.component';
-import { AdminComponent } from './admin/admin.component';
-import { SecurityKeyComponent } from './security-key/security-key.component';
-import { KeyModalComponent } from './security-key/key-modal/key-modal.component';
-import { VerifyComponent } from './profile/verify/verify.component';
-import { ReadonlyComponent } from './readonly/readonly.component';
+import { AdminComponent } from './admin/admin.component'; 
+import { VerifyComponent } from './profile/verify/verify.component'; 
 import { ResetPasswordComponent } from './login/reset-password/reset-password.component';
 import { FamilyTreeComponent } from './family-tree/family-tree.component';
 import { EaFormComponent } from './ea-form/ea-form.component';  
@@ -47,6 +37,8 @@ import { ReferalComponent } from './referal/referal.component';
 import { MembershipComponent } from './membership/membership.component';
 import { UserComponent } from './user/user.component';
 import { PaymentConfirmComponent } from './payment-confirm/payment-confirm.component';
+import { UserDetailComponent } from './user/user-detail/user-detail.component';
+import { RebateComponent } from './rebate/rebate.component';
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "right",
@@ -67,19 +59,13 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     TopsideComponent,
     NotFoundComponent,
     FooterComponent,
-    ReloginComponent, 
-    MemberComponent,
+    ReloginComponent,  
     TransactionComponent, 
     ProfileComponent,
     ProfileEditComponent,
     ActivationComponent, 
-    ProfitSharingComponent, 
-    CommissionSponsorComponent,
-    CommissionPassupComponent,
-    CommissionPairingComponent,
-    CommissionRewardComponent,
-    MemberParentComponent, 
-     PairingDetailComponent, InboxComponent, AdminComponent, SecurityKeyComponent, KeyModalComponent, VerifyComponent, ReadonlyComponent, ResetPasswordComponent, FamilyTreeComponent, EaFormComponent, ReferalComponent, MembershipComponent, UserComponent, PaymentConfirmComponent, 
+    ProfitSharingComponent,   
+    InboxComponent, AdminComponent,  VerifyComponent,  ResetPasswordComponent, FamilyTreeComponent, EaFormComponent, ReferalComponent, MembershipComponent, UserComponent, PaymentConfirmComponent, UserDetailComponent, RebateComponent, 
     
   ],
   imports: [

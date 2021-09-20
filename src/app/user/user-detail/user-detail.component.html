@@ -1,0 +1,145 @@
+<div class="main-wrapper">
+
+    <app-leftside></app-leftside>
+
+    <div class="page-wrapper">
+
+        <app-topside></app-topside>
+
+        <div class="page-content">
+
+            <div class="row">
+                <div class="col-12">
+                    <a href="javascript:;" (click)="back();">Back</a>
+                </div>
+
+                <div class="col-12 col-md-6 mb-3">
+                    <div class="card">
+                        <table class="table table-sm table-borderless">
+                            <tr>
+                                <td>ID User</td>
+                                <td>:<b><code class="text-dark"> {{user['id']}}</code> </b></td>
+                            </tr>
+                            <tr>
+                                <td>Community</td>
+                                <td>: <b> {{user['community']}}</b></td>
+                            </tr>
+                            <tr>
+                                <td>Name</td>
+                                <td>: <b> {{user['name']}}</b></td>
+                            </tr>
+                            <tr>
+                                <td>Email Address</td>
+                                <td>: <b> {{user['email']}}</b></td>
+                            </tr>
+
+                            <tr>
+                                <td>Direct Sponsor</td>
+                                <td>: {{detail['sponsor']}} (<code class="text-dark">{{detail['idSponsor']}}</code>)</td>
+                            </tr>
+                            <tr>
+                                <td> Membership Due Date </td>
+                                <td>:
+                                    <b>{{user['expires_date'] | date : 'd MMM y'}}</b>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Joining Date</td>
+                                <td>: {{user['register_date'] | date : 'd MMM y'}}</td>
+                            </tr>
+                            <!-- <tr>
+                            <td>Account Status</td>
+                           
+                            <td> {{verified}}</td>
+                          </tr> -->
+
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 mb-3">
+                    <div class="border rounded-sm">
+                        <small>CARD</small>
+                        <div>{{user['community']}}</div>
+                        <div>{{product}}</div>
+                        <div>valid Thru : {{user['expires_date'] | date : 'MM/yy'}}</div>
+                        <div>{{user['id']}}</div>
+                    </div>
+                </div>
+
+                <div class="col-12 mb-3">
+                    <div class="card">
+                        <table class="table table-sm excel">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Package</th>
+
+                                    <th>Qty</th>
+                                    <th>Order Date</th>
+                                    <th>Transaction Code</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let x of v2_user_product; let i = index">
+                                    <td> {{i+1}} </td>
+                                    <td> {{x.name}} </td>
+                                    <td> {{x.qty}} </td>
+                                    <td> {{x.input_date | date}} </td>
+                                    <td> <code>{{x.transactionCode}} </code> </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-12 mb-1">
+                    <button type="button" class="btn btn-sm btn-secondary">Rebate </button>
+                    <button type="button" class="btn btn-sm btn-light mx-1">Performance Fee </button>
+                    
+                </div>
+            </div>
+            <div class="card p-2">
+
+                <table id="example" class="display excel" style="width:100%">
+                    <thead>
+                        <tr>
+                            <td class="text-center">No</td>
+                            <td>ID</td>
+                            <td>Name</td>
+                            <td>email</td>
+                            <td>Joining Date</td>
+                            <td>EA Status</td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let x of items; let i = index">
+                            <td class="text-center">{{i+1}}</td>
+                            <td>
+                                <a [routerLink]="[ '/user/detail', x.id ]"><code>{{x.id}}</code></a>
+                            </td>
+                            <td>{{x.name}}</td>
+                            <td>{{x.email}}</td>
+
+                            <td>{{x.input_date | date}}</td>
+                            <td>{{x.statusName}}</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+
+        <app-footer></app-footer>
+
+    </div>
+</div>

@@ -90,6 +90,48 @@
 
                                 </div>
 
+
+                                <div class="row no-gutters">
+                                    <div class="col-12">
+                                        <label for="a12">Select Products</label>
+                                    </div>
+                                    <div class="col" *ngFor="let x of product">
+                                        <div class="border p-1 rounded-sm mx-1 cursor-pointer text-center mb-2" (click)="model.productId = x.id; productName = x.name">
+                                            <b>{{x.name}}</b>
+                                            <div>
+                                                <small>IDR {{x.price | number}}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col">
+                                        <label for="tt">Product</label>
+                                        <input type="text" readonly class="form-control form-control-sm" value="{{productName}}"> 
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="a12">Qty</label>
+                                            <input type="number" class="form-control form-control-sm" id="a12" required [(ngModel)]="model.qty" name="qty" #qty="ngModel">
+                                            <small [hidden]="qty.valid || qty.pristine" class="text-danger">
+                                                Qty is required
+                                            </small>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="tt">Total</label>
+                                            <input type="number" class="form-control form-control-sm" value="{{total}}">
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="alert text-center text-warning">
@@ -103,6 +145,7 @@
                             </div>
 
                         </form>
+                        {{model | json}}
                     </some-element>
 
                     <some-element *ngSwitchCase="1">
@@ -115,9 +158,9 @@
                                     <input type="text" class="text-center" maxlength="6" [(ngModel)]="code">
                                 </p>
                                 <button type="button" class="btn btn-warning" (click)="onConfirmCode();" [disabled]="!code">Submit</button>
-                             <div class="mt-2">
-                                <p>  {{node}}</p>
-                             </div>
+                                <div class="mt-2">
+                                    <p> {{node}}</p>
+                                </div>
                             </div>
                         </div>
                     </some-element>

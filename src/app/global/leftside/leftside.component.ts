@@ -12,10 +12,13 @@ declare var $;
   styleUrls: ['./leftside.component.css']
 })
 export class LeftsideComponent implements OnInit {
-  verified:string = '100';
+  verified:string = '0';
   active : string;
   title : string = environment.title;
   subtitle : string = environment.subtitle;
+  coffeetalk : string = environment.coffeetalk;
+  orderCode : string;
+  eaStatus:boolean=false;
   constructor( 
     private activatedRoute: ActivatedRoute,
     private http: HttpClient,
@@ -23,17 +26,23 @@ export class LeftsideComponent implements OnInit {
   ) { }
 
   ngOnInit(): void { 
-    this.active = this.activatedRoute.snapshot.data.active;
-  
+    this.active = this.activatedRoute.snapshot.data.active; 
     this.getHttp(); 
   }
+
+  onPayment(){
+    window.open( environment.coffeetalk+ 'paymentConfirm?orderCode='+this.orderCode, 'newwindow');
+  }
+
   getHttp() { 
     this.http.get<any>(environment.api + "profile/leftSide/", {
       headers: this.configService.headers()
     }).subscribe(
       data => { 
-        this.verified = data['verified'];
         console.log(data);
+        this.eaStatus = data['eaStatus'];
+        this.verified = data['verified'];
+        this.orderCode = data['orderCode']; 
         $(document).ready(function () {
       
           var body = $('body');

@@ -27,7 +27,7 @@
 
                         <tree-root [nodes]="nodes" #tree (activate)="onEvent($event)" [options]="options">
                             <ng-template #treeNodeTemplate let-node let-index="index">
-                                <span> <strong> {{ node.data.name }}</strong> <small class="text-uppercase mx-1">({{node.data.level}})</small></span>
+                                <span> <strong> {{ node.data.name }}</strong> <small class="text-uppercase mx-1">{{node.data.level}}</small></span>
                                 <div><small>ID : {{ node.data.id }}</small> 
                                    
                                     <a [routerLink]="[ '/user/detail', node.data.id ]" class="mx-2"><small>Detail</small></a>

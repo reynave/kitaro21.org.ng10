@@ -11,7 +11,10 @@
                 <table>
                     <tr>
                         <td width="150"> My referral link :</td>
-                        <td><input type="text" class="form-control form-control-sm" readonly #userinput value="{{referral}}"> </td>
+                        <td>
+                            <input type="text" class="form-control form-control-sm" readonly #userinput value="{{referral}}"> 
+                            <small [hidden]="!asCopy">You have copy this text.</small>
+                        </td>
                         <td>
                             <button (click)="copyInputMessage(userinput)" class="btn btn-sm btn-primary mx-2" value="click to copy">Copy Text</button>
                         </td>

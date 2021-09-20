@@ -7,7 +7,7 @@ export const environment = {
   title : "KITARO21",
   subtitle : "ORG",
   api : "http://localhost/application/kitaro.org/user.api/", 
-  from : "http://localhost:4200/#/membership/",  
+  coffeetalk : "http://localhost:4200/#/",  
 };
 
 /*

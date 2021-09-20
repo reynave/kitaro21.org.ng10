@@ -14,8 +14,7 @@
                         <tr> 
                             <th>Date</th> 
                             <th>Batch</th>
-                            <th class="text-right">Total User</th>
-                            <th class="text-right">Profit Sharing (USD)</th>
+                            <th class="text-right">Total User</th> 
                             <th class="text-right">Profit Sharing (Rp)</th>
                             
                             <th></th>
@@ -25,8 +24,7 @@
                         <tr *ngFor="let x of items">
                             <td> {{x.period_date | date}} </td>
                             <Td>{{x.batch}}</Td>
-                            <td class="text-right"> {{x.total_user}} </td>
-                            <td class="text-right">USD {{x.amount | number}} </td>
+                            <td class="text-right"> {{x.total_user}} </td> 
                             <td class="text-right">Rp {{x.rupiah | number}} </td>
                            
                             <td class="text-center">
@@ -64,12 +62,8 @@
                     <th>No</th>
                     <th>Child</th>
                     <th class="text-center">Child Depth </th>
-
-                    <th class="text-right">Percents </th>
-                    <th class="text-right"> Commission (USD)</th>
-
-                    <th class="text-right"> RP/USD</th>
-                    <th class="text-right"> Commission (Rp)</th>
+ 
+                    <th class="text-right"> Rebate (Rp)</th>
 
                 </tr>
             </thead>
@@ -78,11 +72,7 @@
                     <td> {{i+1}} </td>
                     <td> {{x.child}} </td>
                     <td  class="text-center"> {{x.level}} </td>
-
-                    <td class="text-right"> {{x.commission}} %</td>
-                    <td class="text-right">USD {{x.amount | number}}</td>
-
-                    <td class="text-right">Rp {{x.dollar | number}}</td>
+  
                     <td class="text-right">Rp {{x.rupiah | number}}</td>
 
 

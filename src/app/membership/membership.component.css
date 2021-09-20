@@ -18,3 +18,7 @@
 hr{
     border-top: 2px solid #8a8a8a !important;
 }
+
+option{
+    color: #333;
+}

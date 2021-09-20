@@ -7,11 +7,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 declare var $;
 
 @Component({
-  selector: 'app-profit-sharing',
-  templateUrl: './profit-sharing.component.html',
-  styleUrls: ['./profit-sharing.component.css']
+  selector: 'app-rebate',
+  templateUrl: './rebate.component.html',
+  styleUrls: ['./rebate.component.css']
 })
-export class ProfitSharingComponent implements OnInit {
+export class RebateComponent implements OnInit {
   items: any = [];
   loading: boolean = false;
   period: string;
@@ -66,6 +66,7 @@ export class ProfitSharingComponent implements OnInit {
       },
     );
   }
+
 
 
 }

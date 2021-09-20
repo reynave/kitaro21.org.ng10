@@ -13,6 +13,8 @@ export class Model {
     public email: string, 
     public password : string,
     public pass2 : string,
+    public qty : number,
+    public productId : string
   ) { }
 }
 
@@ -22,7 +24,8 @@ export class Model {
   styleUrls: ['./membership.component.css']
 })
 export class MembershipComponent implements OnInit {
-  model : any = new Model("","","","") ;
+  productName : string;
+  model : any = new Model("","","","",1,"") ;
   loading : boolean = false;
   sign : boolean = true;
   ref : string;
@@ -34,6 +37,8 @@ export class MembershipComponent implements OnInit {
   check :boolean = false;
   node : string;
   code : string;
+  product : any = [];
+  total : number = 0;
   constructor(
     private http: HttpClient,
     private configService: ConfigService,
@@ -75,6 +80,7 @@ export class MembershipComponent implements OnInit {
     }).subscribe(
       data => {  
         console.log(data);  
+        this.product = data['product'];
         this.error = data['error'];
         this.referall = data;
       },
