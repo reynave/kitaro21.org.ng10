@@ -47,7 +47,7 @@ export class ReferalComponent implements OnInit {
         if( !data['verified'] ){
           this.router.navigate(['notfound']);
         }
-        this.referral =  environment.coffeetalk+"membership?ref="+data['referral'];
+        this.referral =  environment.coffeetalk+"?ref="+data['referral'];
         this.items = data['items']; 
         this.configService.relogin(data);
       },

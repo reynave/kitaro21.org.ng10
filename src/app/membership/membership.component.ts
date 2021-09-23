@@ -14,7 +14,11 @@ export class Model {
     public password : string,
     public pass2 : string,
     public qty : number,
-    public productId : string
+    public productId : string, 
+    public code : string,
+    public phone : string,
+    public birthdate : string,
+    
   ) { }
 }
 
@@ -25,7 +29,7 @@ export class Model {
 })
 export class MembershipComponent implements OnInit {
   productName : string;
-  model : any = new Model("","","","",1,"") ;
+  model : any = new Model("","","","",1,"","62","","1970-01-01") ;
   loading : boolean = false;
   sign : boolean = true;
   ref : string;

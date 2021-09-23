@@ -1,0 +1,24 @@
+<div class="container">
+    
+    <div class="row">
+        <div class="col-12">
+            <div class="my-5 text-center">
+               
+                <div [hidden]="!loading">
+                    <div>
+                        <b>Processing</b>
+                    </div>
+                    <em> <small>Please dont close this window.</small></em>
+                </div>
+
+                <div [hidden]="loading"> 
+                    <b>{{note}} </b>
+                    <div>
+                        <small>Activation has already used, or expired</small>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

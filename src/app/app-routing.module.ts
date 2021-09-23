@@ -22,6 +22,7 @@ import { PaymentConfirmComponent } from './payment-confirm/payment-confirm.compo
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { ProfitSharingComponent } from './profit-sharing/profit-sharing.component';
 import { RebateComponent } from './rebate/rebate.component';
+import { MembershipActivationComponent } from './membership/membership-activation/membership-activation.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -32,6 +33,8 @@ const routes: Routes = [
   { path: 'login/resetpassword', component: ResetPasswordComponent },
   { path: 'activation/:token', component: ActivationComponent },
   { path: 'admin/loki', component: AdminComponent },
+  { path: 'membership/activation', component: MembershipActivationComponent,  },
+  
 
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard], data:{active:"home"} },
   { path: 'eaForm', component: EaFormComponent, canActivate: [AuthGuard] , data:{active:"eaForm"}},
@@ -40,6 +43,8 @@ const routes: Routes = [
   { path: 'user/detail/:id', component: UserDetailComponent, canActivate: [AuthGuard] , data:{active:"user"}},
   { path: 'user', component: UserComponent, canActivate: [AuthGuard] , data:{active:"user"}},
   { path: 'inbox', component: InboxComponent, canActivate: [AuthGuard], data:{active:"inbox"} },
+
+
 
   { path: 'profidSharing', component: ProfitSharingComponent, canActivate: [AuthGuard] , data:{active:"profidSharing"}},
   { path: 'rebate', component: RebateComponent, canActivate: [AuthGuard] , data:{active:"rebate"}},

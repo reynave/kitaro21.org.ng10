@@ -3,5 +3,5 @@ export const environment = {
   title : "KITARO21",
   subtitle : "ORG",
   api : "https://member.vision88.id/api/",
-  from : "https://member.vision88.id/user/#/form/",
+  coffeetalk : "https://member.coffeetalk.co.id/",  
 };

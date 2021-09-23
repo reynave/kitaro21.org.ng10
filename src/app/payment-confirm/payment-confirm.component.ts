@@ -70,7 +70,9 @@ export class PaymentConfirmComponent implements OnInit {
         console.log(data);    
         if(data['error']==false){
           this.payment = true;
+        
         }
+        this.httpGet();
         this.note = data['note'];
       },
       error => {

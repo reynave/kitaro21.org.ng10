@@ -39,6 +39,7 @@ import { UserComponent } from './user/user.component';
 import { PaymentConfirmComponent } from './payment-confirm/payment-confirm.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { RebateComponent } from './rebate/rebate.component';
+import { MembershipActivationComponent } from './membership/membership-activation/membership-activation.component';
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "right",
@@ -65,7 +66,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     ProfileEditComponent,
     ActivationComponent, 
     ProfitSharingComponent,   
-    InboxComponent, AdminComponent,  VerifyComponent,  ResetPasswordComponent, FamilyTreeComponent, EaFormComponent, ReferalComponent, MembershipComponent, UserComponent, PaymentConfirmComponent, UserDetailComponent, RebateComponent, 
+    InboxComponent, AdminComponent,  VerifyComponent,  ResetPasswordComponent, FamilyTreeComponent, EaFormComponent, ReferalComponent, MembershipComponent, UserComponent, PaymentConfirmComponent, UserDetailComponent, RebateComponent, MembershipActivationComponent, 
     
   ],
   imports: [
