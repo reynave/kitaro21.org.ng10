@@ -2,6 +2,6 @@ export const environment = {
   production: true,
   title : "KITARO21",
   subtitle : "ORG",
-  api : "https://member.vision88.id/api/",
+  api : "https://member.kitaro21.org/user.api/",
   coffeetalk : "https://member.coffeetalk.co.id/",  
 };
