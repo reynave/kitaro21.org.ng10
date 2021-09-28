@@ -31,6 +31,23 @@
                                 </tr>
  
                                 <tr>
+                                    <td> Alamat </td> <td>:</td>
+                                    <td> 
+                                        <textarea  class="form-control form-control-sm"  name="address" [(ngModel)]="model.address" required [readonly]="readonly"  #address="ngModel"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> City </td> <td>:</td>
+                                    <td>   <input type="text" class="form-control form-control-sm"  name="city"  [(ngModel)]="model.city"  [readonly]="readonly">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> Kode Pos </td> <td>:</td>
+                                    <td> <input type="text" class="form-control form-control-sm"  name="postal_code"  [(ngModel)]="model.postal_code"  [readonly]="readonly">   </td>
+                                </tr>
+                             
+
+                                <tr>
                                     <td>  Password</td> <td>:</td>
                                     <td>  <a href="javascript:;" class="btn btn-sm btn-block btn-primary" (click)="open(content)"> Change Password </a> </td>
                                 </tr>
@@ -41,6 +58,7 @@
                                 </tr>
 
                             </table>
+ 
                         </div>
 
                         <div class="p-2 bg-white border rounded-sm  mb-2">
@@ -264,19 +282,7 @@
                             
                         </div>
 
-                        <div class="p-2 bg-white border rounded-sm  mb-2">
-                            <table class="table table-sm table-borderless">
-                                <tr>
-                                    <td width="30%">Security Key</td> 
-
-                                    <td>
-                                        <button type="button" class="btn btn-sm btn-dark btn-block" [routerLink]="[ '/seckey']"> Create New Security Key </button>
-                                    </td>
-                                </tr>
-
-                            </table>
-
-                        </div>
+                      
 
                     </div>
                     <div class="col-md-6 col-12 ">
@@ -350,7 +356,7 @@
                     </div>
                     <div class="col-12 text-right">
                        
-                            <button type="button" class="btn btn-primary" (click)="readonly=false">Update</button>
+                            <button type="button" class="btn btn-primary" (click)="readonly=false">Edit</button>
                          
                     </div>
                 </div>

@@ -1,0 +1,80 @@
+<div class="main-wrapper">
+
+    <app-leftside></app-leftside>
+
+    <div class="page-wrapper">
+
+        <app-topside></app-topside>
+
+        <div class="page-content">
+            <div class="bg-white border shadow-sm p-1">
+                <table id="dataTables" class="table table-sm excel table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>User ID</th>
+                            <th>Name</th> 
+                            <th>Total Sales</th>
+                            <th class="text-right">Total Amount</th>
+                            <!-- <th></th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let x of items; let i = index">
+                            <td>{{ i+1 }}</td>
+                            <td>{{x.userId}}</td> 
+                            <td> {{x.name}} </td> 
+                            <td>{{x.qty}}</td>
+                            <td class="text-right">Rp {{x.amount | number}}</td> 
+                            <!-- <td><a href="javascript:;" (click)="open(x);">Detail</a></td> -->
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+
+        <app-footer></app-footer>
+
+    </div>
+</div>
+
+
+
+<!-- <ng-template #modalAgree let-modal>
+    <div class="modal-header">
+        <b>PERNYATAAN PRIBADI</b>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="bg-white border shadow-sm p-1">
+            <table   class="table table-sm excel table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>No</th> 
+                        <th>Product</th> 
+                        <th>Qty</th>
+                        <th class="text-right">Total Amount</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let x of itemsDetail; let i = index">
+                        <td>{{ i+1 }}</td> 
+                        <td>{{x.name}} </td> 
+                        <td>{{x.qty}}</td>
+                        <td class="text-right">Rp {{x.amount | number}}</td>  
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="agreement=false;modal.close('Save click')">Cancel</button>  
+    </div>
+</ng-template> -->

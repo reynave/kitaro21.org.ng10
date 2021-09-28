@@ -11,3 +11,7 @@ li, p{
     font-size: 13px;
     margin-bottom: 10px;
 }
+
+div{
+    line-height: 100%;;
+}

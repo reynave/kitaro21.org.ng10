@@ -23,6 +23,8 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { ProfitSharingComponent } from './profit-sharing/profit-sharing.component';
 import { RebateComponent } from './rebate/rebate.component';
 import { MembershipActivationComponent } from './membership/membership-activation/membership-activation.component';
+import { EaFormListComponent } from './ea-form/ea-form-list/ea-form-list.component';
+import { SalesReportComponent } from './sales-report/sales-report.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -37,7 +39,10 @@ const routes: Routes = [
   
 
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard], data:{active:"home"} },
-  { path: 'eaForm', component: EaFormComponent, canActivate: [AuthGuard] , data:{active:"eaForm"}},
+  { path: 'eaForm', component: EaFormListComponent, canActivate: [AuthGuard] , data:{active:"eaForm"}},
+  { path: 'eaForm/draft/:id', component: EaFormComponent, canActivate: [AuthGuard] , data:{active:"eaForm"}},
+
+
   { path: 'familyTree', component: FamilyTreeComponent, canActivate: [AuthGuard] , data:{active:"familyTree"}},
   { path: 'referal', component: ReferalComponent, canActivate: [AuthGuard] , data:{active:"referal"}},
   { path: 'user/detail/:id', component: UserDetailComponent, canActivate: [AuthGuard] , data:{active:"user"}},
@@ -46,8 +51,9 @@ const routes: Routes = [
 
 
 
-  { path: 'profidSharing', component: ProfitSharingComponent, canActivate: [AuthGuard] , data:{active:"profidSharing"}},
+  { path: 'profitSharing', component: ProfitSharingComponent, canActivate: [AuthGuard] , data:{active:"profitSharing"}},
   { path: 'rebate', component: RebateComponent, canActivate: [AuthGuard] , data:{active:"rebate"}},
+  { path: 'salesReport', component: SalesReportComponent, canActivate: [AuthGuard] , data:{active:"salesReport"}},
   
 
   { path: 'genaralTrans', component: TransactionComponent, canActivate: [AuthGuard] , data:{active:"genaralTrans"}},

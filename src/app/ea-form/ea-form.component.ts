@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import { ConfigService } from 'src/app/service/config.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SignaturePad } from 'ngx-signaturepad/signature-pad';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 export class Model {
   constructor(
@@ -20,7 +20,8 @@ export class Model {
     public hfid: string,
     public accessCode: string,
     public eaName: string,
-    public amount: number,  
+    public amount: number,
+    public formTypeId: string,
   ) { }
 }
 
@@ -29,7 +30,7 @@ export class Model {
   templateUrl: './ea-form.component.html',
   styleUrls: ['./ea-form.component.css']
 })
-export class EaFormComponent implements OnInit { 
+export class EaFormComponent implements OnInit {
   @ViewChild('signatureCanvas', { static: true }) signaturePad: SignaturePad;
   signaturePadOptions: Object = { // passed through to szimek/signature_pad constructor
     'minWidth': 2,
@@ -38,31 +39,56 @@ export class EaFormComponent implements OnInit {
     'backgroundColor': "rgb(255,255,255)"
   };
   //http://definitelytyped.org/docs/signature_pad--signature_pad/classes/signaturepad.html#signaturepadoptions
-  loading:boolean = true; 
-  parent : any = [];
-  model: any = new Model("", "", "","","62","","","","","","",1000 );
-  status : number = 1;
-  item : any = [];
+  loading: boolean = true;
+  parent: any = [];
+  model: any = new Model("", "", "", "", "62", "", "", "", "", "", "", 1000, "");
+  status: number = 1;
+  item: any = [];
+  id: string;
   constructor(
     private http: HttpClient,
     private configService: ConfigService,
-    private modalService: NgbModal, 
+    private modalService: NgbModal,
+    private activeRoute: ActivatedRoute
   ) { }
- 
-  ngOnInit(): void { 
-    this.getHttp(); 
-  } 
+
+  ngOnInit(): void {
+    this.getHttp();
+    console.log(this.activeRoute.snapshot.params['id']);
+  }
   getHttp() {
     this.modalService.dismissAll();
-    this.http.get<any>(environment.api + "form/ea", {
+    this.http.get<any>(environment.api + "ea/draft/" + this.activeRoute.snapshot.params['id'], {
       headers: this.configService.headers()
     }).subscribe(
-      data => { 
-        this.status = data['item']['status'];
-        this.item = data['item']
-        this.parent = data['parent'];
-        this.configService.relogin(data); 
-        this.loading= false;
+      data => {
+        if (data['error'] == true) {
+          this.back();
+        } else {
+
+
+          this.model = new Model(
+            data['items']['name'],
+            data['items']['altName'],
+            data['items']['email'],
+            data['items']['phone'],
+            data['items']['countryCode'],
+            data['items']['gender'],
+            data['items']['serverName'],
+            data['items']['mt4Number'],
+            data['items']['hfid'],
+            data['items']['accessCode'],
+            data['items']['eaName'],
+            data['items']['amount'],
+            data['items']['formTypeId'],
+          );
+          this.status = data['status'];
+          this.id = data['id'];
+          this.item = data['item']
+          this.parent = data['parent'];
+        }
+        this.configService.relogin(data);
+        this.loading = false;
         console.log(data);
       },
       error => {
@@ -71,35 +97,58 @@ export class EaFormComponent implements OnInit {
 
     );
   }
- 
-  open(content) {
-    this.modalService.open(content,{size:'xl'});
-  }
- 
-  onSubmit(){
-    this.loading = true;
+
+  onChanges(name, value) {
     const body = {
-      model: this.model, 
-      signature : this.signaturePad.toDataURL()
-    } 
+      name: name,
+      value: value,
+      id: this.activeRoute.snapshot.params['id'],
+    }
     console.log(body);
-    this.http.post<any>(environment.api + "form/eaSubmit", body, {
+    this.http.post<any>(environment.api + "ea/onChanges", body, {
       headers: this.configService.headers()
     }).subscribe(
       data => {
-        this.getHttp();
-        console.log(data); 
-
+        console.log(data);
       },
       error => {
         console.log(error);
-      }, 
+      },
+    );
+  }
+
+  open(content) {
+    this.modalService.open(content, { size: 'xl' });
+  }
+
+  onSubmit() {
+    this.loading = true;
+    const body = {
+      model: this.model,
+      signature: this.signaturePad.toDataURL(),
+      id: this.activeRoute.snapshot.params['id'],
+    }
+    console.log(body);
+    this.http.post<any>(environment.api + "ea/eaSubmit", body, {
+      headers: this.configService.headers()
+    }).subscribe(
+      data => {
+        this.loading = false;
+        this.back();
+        console.log(data);
+
+      },
+      error => {
+        this.loading = false;
+        this.back();
+        console.log(error);
+      },
     );
   }
 
   sign: boolean = false;
   agreement: boolean = false;
-  
+
   drawClear() {
     this.signaturePad.clear(); // invoke functions from szimek/signature_pad API
     this.sign = false;
@@ -115,5 +164,8 @@ export class EaFormComponent implements OnInit {
     console.log('begin drawing');
   }
 
+  back() {
+    window.history.back();
+  }
 
 }

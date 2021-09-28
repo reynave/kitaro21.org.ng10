@@ -9,14 +9,17 @@
         <app-topside></app-topside>
 
         <div class="page-content">
+            <div class="text-left">
+                <a href="javascript:;" (click)="back();"><small>Back</small></a>
+            </div>
             <div class="text-center mb-4">
                 <strong> Statement Letter and Application Application to</strong>
                 <h4>PT KITARO TAKARA INTERNASIONAL </h4>
             </div>
 
 
-            <div class="card p-3" [hidden]="status != 0">
-
+            <div class="card p-3">
+ 
                 <form (ngSubmit)="onSubmit()" #heroForm="ngForm" autocomplete="off">
                     <div class="row">
 
@@ -26,6 +29,11 @@
                                 <strong>DATA PRIBADI</strong>
                             </div>
 
+                         
+                            <div class="form-group">
+                                <label for="fn">Form Number</label>
+                                <input type="text"  class="form-control form-control-sm" value="{{id}}" readonly> 
+                            </div>
 
                             <div class="form-group">
                                 <label>DIRECT SPONSOR / RESELLER</label>
@@ -33,26 +41,29 @@
 
                             </div>
 
+
+                         
+
                             <div class="form-group">
                                 <label for="f1">First Name</label>
-                                <input type="text" autocomplete="off" class="form-control form-control-sm" id="f1" required [(ngModel)]="model.name" name="name" #name="ngModel" placeholder="First Name">
+                                <input type="text" autocomplete="off" (change)="onChanges('name',model.name)" class="form-control form-control-sm" id="f1" required [(ngModel)]="model.name" name="name" #name="ngModel" placeholder="First Name">
                                 <small id="f1" [hidden]="name.valid || name.pristine" class="form-text text-danger">Name is required.</small>
                             </div>
 
                             <div class="form-group">
                                 <label for="f2">Middle Name and Last Name</label>
-                                <input type="text" autocomplete="off" class="form-control form-control-sm" id="f2" required [(ngModel)]="model.altName" name="altName" #altName="ngModel" placeholder="Middle Name and Last Name">
+                                <input type="text" autocomplete="off" (change)="onChanges('altName',model.altName)" class="form-control form-control-sm" id="f2" required [(ngModel)]="model.altName" name="altName" #altName="ngModel" placeholder="Middle Name and Last Name">
                                 <small id="f1" [hidden]="altName.valid || altName.pristine" class="form-text text-danger">Middle Name and Last Name is required.</small>
                             </div>
 
                             <div class="form-group">
                                 <label for="f3">Email</label>
-                                <input type="email" email autocomplete="off" class="form-control form-control-sm" id="f3" required [(ngModel)]="model.email" name="email" #email="ngModel" placeholder="Email Address">
+                                <input type="email" email autocomplete="off" (change)="onChanges('email',model.email)" class="form-control form-control-sm" id="f3" required [(ngModel)]="model.email" name="email" #email="ngModel" placeholder="Email Address">
                                 <small id="f1" [hidden]="email.valid || email.pristine" class="form-text text-danger">Email is required.</small>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Country</label>
-                                <select name="countryCode" class="form-control form-control-sm" [(ngModel)]="model.countryCode">
+                                <select name="countryCode" class="form-control form-control-sm" (change)="onChanges('countryCode',model.countryCode)" [(ngModel)]="model.countryCode">
                                     <option data-countryCode="ID" value="62" selected>Indonesia (+62)</option>
                                     <option data-countryCode="US" value="1">USA (+1)</option>
                                     <optgroup label="Other countries">
@@ -250,7 +261,7 @@
                                     <input type="text" class="form-control form-control-sm" readonly value="{{model.countryCode}}">
                                 </div>
                                 <div class="col-9">
-                                    <input type="number" autocomplete="off" class="form-control form-control-sm" id="f5" required [(ngModel)]="model.phone" name="phone" #phone="ngModel" placeholder="Ex 81200001111 ">
+                                    <input type="number" autocomplete="off" class="form-control form-control-sm" id="f5" required [(ngModel)]="model.phone" name="phone" #phone="ngModel" placeholder="Ex 81200001111 "  (change)="onChanges('phone',model.phone)">
                                     <small id="f1" [hidden]="phone.valid || phone.pristine" class="form-text text-danger">Phone is required</small>
                                 </div>
                             </div>
@@ -260,10 +271,10 @@
                                 <label for="exampleInputEmail1">Gender</label>
                                 <div class="row no-gutters">
                                     <div class="col-3">
-                                        <input type="radio" name="gender" required id="c1" [(ngModel)]="model.gender" value="m"> <label class="mx-2" for="c1">Male</label>
+                                        <input type="radio" name="gender"  (change)="onChanges('gender',model.gender)" required id="c1" [(ngModel)]="model.gender" value="m"> <label class="mx-2" for="c1">Male</label>
                                     </div>
                                     <div class="col">
-                                        <input type="radio" name="gender" required id="c2" [(ngModel)]="model.gender" value="f"> <label class="mx-2" for="c2">Female</label>
+                                        <input type="radio" name="gender"  (change)="onChanges('gender',model.gender)" required id="c2" [(ngModel)]="model.gender" value="f"> <label class="mx-2" for="c2">Female</label>
                                     </div>
                                 </div>
                             </div>
@@ -271,31 +282,56 @@
 
                         <div class="col-12 col-md-6">
                             <div class="mb-2">
+                                <strong> INFORMASI TENTANG AKUN TRADING DAN EXPERT ADVISOR SAYA</strong>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="formTypeId">Jenis Aktivasi Treasury Expert Advisor :</label>
+                                <select class="form-control form-control-sm" class="form-control form-control-sm" id="formTypeId" required [(ngModel)]="model.formTypeId" name="formTypeId"  (change)="onChanges('formTypeId',model.formTypeId)" #formTypeId="ngModel">
+                                    <option value="1">Baru / New</option>
+                                    <option value="2">Tambahan / Top Up </option>
+                                    <option value="3">Pemindahan EA / Switching</option>
+                                    
+                                </select>
+
+
+                                <small [hidden]="formTypeId.valid || formTypeId.pristine" class="form-text text-danger">Server Name is required.</small>
+                            </div>
+
+
+
+                            <hr>
+
+                            <div class="mb-2">
                                 <strong>INFORMATION MY TRADING ACCOUNT</strong>
                             </div>
                             <div class="form-group">
                                 <label for="b1">Server Name </label>
-                                <input type="text" autocomplete="off" class="form-control form-control-sm" id="b1" required [(ngModel)]="model.serverName" name="serverName" #serverName="ngModel" placeholder="Broker Live Server Name">
+                                <select class="form-control form-control-sm" (change)="onChanges('serverName',model.serverName)" class="form-control form-control-sm" id="b1" required [(ngModel)]="model.serverName" name="serverName" #serverName="ngModel">
+                                    <option value="HOT FOREX (HF MARKETS)">HOT FOREX (HF MARKETS)</option>
+                                </select>
+
+
                                 <small [hidden]="serverName.valid || serverName.pristine" class="form-text text-danger">Server Name is required.</small>
                             </div>
                             <div class="form-group">
                                 <label for="b2"> MT4 Number </label>
-                                <input type="text" autocomplete="off" class="form-control form-control-sm" id="b2" required [(ngModel)]="model.mt4Number" name="mt4Number" #mt4Number="ngModel" placeholder="MT4 Number (if you already have)">
+                                <input type="text" autocomplete="off" (change)="onChanges('mt4Number',model.mt4Number)" class="form-control form-control-sm" id="b2" required [(ngModel)]="model.mt4Number" name="mt4Number" #mt4Number="ngModel" placeholder="MT4 Number (if you already have)">
                                 <small [hidden]="mt4Number.valid || mt4Number.pristine" class="form-text text-danger">MT number is required.</small>
                             </div>
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="b3">My HFID </label>
-                                        <input type="text" autocomplete="off" class="form-control form-control-sm" id="b3" required [(ngModel)]="model.hfid" name="hfid" #hfid="ngModel" placeholder="HFID is required.">
+                                        <label for="b3">My HotForex ID</label>
+                                        <input type="text" autocomplete="off" (change)="onChanges('hfid',model.hfid)" class="form-control form-control-sm" id="b3" required [(ngModel)]="model.hfid" name="hfid" #hfid="ngModel" placeholder="HFID is required.">
                                         <small [hidden]="hfid.valid || hfid.pristine" class="form-text text-danger">HFID is required.</small>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-s1">
-                                        <label for="s1">Access Code </label>
-                                        <input type="text" autocomplete="off" class="form-control form-control-sm" id="s1" required [(ngModel)]="model.accessCode" name="accessCode" #accessCode="ngModel" placeholder="Access Code is required.">
-                                        <small [hidden]="accessCode.valid || accessCode.pristine" class="form-text text-danger">Access Code is required.</small>
+                                        <label for="s1">Password Access</label>
+                                        <input type="text" autocomplete="off" (change)="onChanges('password',model.password)" class="form-control form-control-sm" id="s1" required [(ngModel)]="model.password" name="password" #password="ngModel" placeholder="Access Code is required.">
+                                        <small [hidden]="password.valid || password.pristine" class="form-text text-danger">Password is required.</small>
 
                                     </div>
                                 </div>
@@ -311,9 +347,10 @@
                             <div class="row">
                                 <div class="col-8">
                                     <div class="form-group">
-                                        <label for="z11">Name of TREASURY EA</label>
-                                        <select class="form-control form-control-sm" id="z11">
-                                            <option>Kitaro Global Fund</option>
+                                        <label for="z11">Name of TREASURY EA - KITARO</label>
+                                        <select class="form-control form-control-sm" id="z11"  (change)="onChanges('eaName',model.eaName)"  required [(ngModel)]="model.eaName" name="eaName" #eaName="ngModel" >
+                                            <option value="KITARO Global Fund (Multiple Entries)"> Global Fund (Multiple Entries)</option>
+                                            <option value="KITARO Swiss Prime (Single Entry)">Swiss Prime (Single Entry)</option>
                                         </select>
                                     </div>
 
@@ -321,9 +358,14 @@
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label for="zv2">Amount Trading </label>
-                                        <input type="text" currencyMask [options]="{ prefix: '$ ' }" class="form-control form-control-sm" id="zv2" required [(ngModel)]="model.amount" name="amount" #amount="ngModel">
+                                        <input type="number"   (change)="onChanges('amount',model.amount)"  class="form-control form-control-sm" id="zv2" required [(ngModel)]="model.amount" name="amount" #amount="ngModel">
                                         <small [hidden]="amount.valid || amount.pristine" class="form-text text-danger">Amount Trading</small>
                                     </div>
+                                </div>
+
+
+                                <div class="col-12">
+                                    <small><em> Bila tidak mencantumkan pilihan, maka otomatis dimasukkan ke KITARO Swiss Prime</em> </small>
                                 </div>
                             </div>
 
@@ -357,60 +399,19 @@
                         </div>
 
 
-                        <div class="col-12 text-center" [hidden]="!agreement">
-                            <button type="submit" class="btn btn-success px-5 my-2" [disabled]="!heroForm.form.valid || !sign">Submit</button>
+                        <div class="col-12 text-center">
+                            <button type="button" class="btn px-5 m-2">Remove</button>
+
+                            <button type="submit" class="btn btn-success px-5 m-2" [disabled]="!agreement|| !sign">Submit</button>
                         </div>
-                        <div class="col-12 text-center" [hidden]="agreement">
-                            <button type="button" class="btn btn-outline-success px-5 my-2" disabled>Submit</button>
-                        </div>
+                        
 
                     </div>
                 </form>
             </div>
 
 
-            <container-element [ngSwitch]="status">
-
-
-                <some-element *ngSwitchCase="1">
-                    <div class="card p-5">
-                        <div class="text-center">
-                            <div>Form Submit by <b>{{item.input_by}}</b>, at <b>{{item.input_date | date}}</b></div>
-                            <div>
-                                Waiting approve by admin.
-                            </div>
-
-                        </div>
-                    </div>
-                </some-element>
-
-                <some-element *ngSwitchCase="4">
-                    <div class="card p-5">
-                        <div class="text-center">
-                            <div>
-                                <div class="text-danger">
-                                    Rejected by Admin
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </some-element>
-
-                <some-element *ngSwitchCase="100">
-                    <div class="card p-5">
-                        <div class="text-center">
-                            <div>
-                                <img src="./assets/gif/Gear-0.4s-190px.gif" width="50">
-
-                                <div><code>  System EA is Running</code></div>
-                            </div>
-                        </div>
-                    </div>
-                </some-element>
-
-
-            </container-element>
-
+      
         </div>
 
         <app-footer></app-footer>

@@ -30,7 +30,7 @@ export class RebateComponent implements OnInit {
   }
 
   getHttp() {
-    this.http.get<any>(environment.api + "profit/index/", {
+    this.http.get<any>(environment.api + "profit/rebate/", {
       headers: this.configService.headers()
     }).subscribe(
       data => {

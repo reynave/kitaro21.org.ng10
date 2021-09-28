@@ -18,7 +18,9 @@ export class Password {
 export class Model {
   constructor(
     public code: string,
-    public phone: string,
+    public address: string,
+    public city: string,
+    public postal_code: string,
 
     public heir_name: string,
     public heir_email: string,
@@ -35,7 +37,7 @@ export class Model {
 })
 export class ProfileEditComponent implements OnInit {
   loading: boolean = true;
-  model: any = new Model("", "", "", "", "", "");
+  model: any = new Model("", "", "", "", "", "","","",);
   password: any = new Password("", "", "");
 
   items: any = [];
@@ -67,6 +69,11 @@ export class ProfileEditComponent implements OnInit {
         this.model.heir_phone = data['items']['heir_phone'];
         this.model.heir_relation = data['items']['heir_relation'];
 
+        this.model.address = data['items']['address'];
+        this.model.city = data['items']['city'];
+        this.model.postal_code = data['items']['postal_code'];
+
+        
 
         this.notes = data['notes'];
         this.readonly = data['items']['verified'] == '0' ? false : true;
