@@ -23,11 +23,11 @@
               <tr>
                 <td> Community Group</td>
                 <td>: <b> {{user['community']}}</b></td>
-              </tr> 
+              </tr>
               <tr>
                 <td>Email Address</td>
                 <td>: <b> {{user['email']}}</b></td>
-              </tr> 
+              </tr>
               <tr>
                 <td>Reseller</td>
                 <td>: {{detail['sponsor']}} (<code class="text-dark">{{detail['idSponsor']}}</code>)</td>
@@ -58,14 +58,31 @@
         </div>
 
         <div class="col-12 col-md-6 mb-2">
-          <div class="border rounded-sm">
-            <small>CARD</small>
-            <div>{{user['community']}}</div>
-            <div>{{cardNumber}}</div>
+          <div class="border cardx rounded-lg bg-{{product}} px-5 py-3 ">
+            <div class="text-center">
+              <img src="https://www.coffeetalk.co.id/assets/img/logo.png" width="100">
+              <h1 class="ctitle">{{user['community']}}</h1>
+            </div>
 
-            <div>{{product}}</div>
-            <div>valid Thru : {{user['expires_date'] | date : 'MM/yy'}}</div>
-            <div>{{user['id']}}</div>
+            <div class="text-center">
+              <div class="tt01">{{product | uppercase }} CLUB</div>
+              <h3 class="text-monospace"> {{cardNumber}} </h3>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                {{user['name']}}
+              </div>
+              <div class="col text-right">
+                <small>VALID THRU : {{user['expires_date'] | date : 'MM/yy'}} </small>
+              </div>
+            </div>
+
+            <div class="subtitle text-center mt-2">
+              <i-feather class="icon" name="chrome"></i-feather> www.coffeetalk.com &nbsp;&nbsp;&nbsp;   <i-feather  class="icon" name="instagram"></i-feather> coffeetalk.indonesia
+            </div>
+
+
           </div>
         </div>
 
@@ -77,8 +94,8 @@
                 <tr>
                   <th>No</th>
                   <th>Package</th>
-                  <th>Qty</th>   
-                   <th>Order Code</th>
+                  <th>Qty</th>
+                  <th>Order Code</th>
                   <th>Order Date</th>
                   <th>Transaction Code</th>
                   <th></th>
@@ -93,7 +110,7 @@
                   <td> {{x.orderCode}} </td>
                   <td> <code>{{x.transactionCode}} </code> </td>
                   <td>
-                    
+
                     <span [hidden]="x.status != '0' ">
                       <button type="button" (click)="onRemove(x);" [hidden]="user.verified == 0" class="btn btn-danger btn-sm mx-1">Remove</button>
 
@@ -109,7 +126,7 @@
                 <tr>
                   <td colspan="6"></td>
                   <td>
-                   
+
                     <button type="button" (click)="openXl(modalCard);" class="btn btn-dark btn-sm btn-block">Add Card</button>
                   </td>
                 </tr>
@@ -336,7 +353,7 @@
             <label for="e4" class="form-label mb-0">Total</label>
             <input type="text" class="form-control" readonly value="Rp {{cartTotal | number}}">
 
-           
+
           </div>
         </div>
 
