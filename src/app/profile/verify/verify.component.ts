@@ -16,7 +16,7 @@ export class Upload {
 
 export class Model {
   constructor(
-    public idNumber: number,
+    public ktp: number,
     public tax: number,
     public code: string,
     public phone: number,
@@ -56,11 +56,11 @@ export class VerifyComponent implements OnInit {
     }).subscribe(
       data => {
         console.log(data); 
+ 
         this.items = data['items'];
         this.notes = data['notes'];
-        this.readonly = data['items']['verified'] == '0' ? false : true;
-
-        this.model.idNumber = data['items']['ktp'];
+      
+        this.model.ktp = data['items']['ktp'];
         this.model.tax = data['items']['npwp'];
         this.model.code = data['items']['code'];
         this.model.phone = data['items']['phone'];
@@ -115,7 +115,7 @@ export class VerifyComponent implements OnInit {
   onFileSelected(event) {
     this.fileId = event.target.files[0];
   }
-
+  uploadError : string;
   onUploadId() {
     const fd = new FormData();
     if (!this.fileId) {
@@ -132,7 +132,8 @@ export class VerifyComponent implements OnInit {
       data => {
         this.getHttp();
         console.log(data); 
-        this.upload['uploadId'] = data['upload_data']
+        this.upload['uploadId'] = data['upload_data'];
+        this.uploadError = data['error'];
       },
       error => {
         this.getHttp();

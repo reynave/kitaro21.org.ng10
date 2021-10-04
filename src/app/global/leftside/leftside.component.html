@@ -13,7 +13,7 @@
     <div class="sidebar-body">
         <ul class="nav">
 
-            <li class="nav-item" [hidden]="verified == '100'">
+            <li class="nav-item" [hidden]="verified">
                 <a href="{{coffeetalk}}paymentConfirm?orderCode={{orderCode}}" target="_blank" class="nav-link text-danger">
                     <i class="link-icon" data-feather="alert-triangle"></i>
                     <span class="link-title">Waiting Payment</span>
@@ -21,6 +21,14 @@
             </li>
 
             <li class="nav-item nav-category">Menu</li>
+
+            <li class="nav-item {{active == 'verify' ? 'active' : false}}">
+                <a [routerLink]="[ '/profile/verify' ]" class="nav-link">
+                    <i class="link-icon" data-feather="alert-circle"></i>
+                    <span class="link-title">Verify Data </span>
+                </a>
+            </li>
+
 
             <li class="nav-item {{active == 'home' ? 'active' : false}}">
                 <a [routerLink]="[ '/' ]" class="nav-link">
@@ -44,15 +52,16 @@
                 </a>
             </li>
 
+            
 
-            <li class="nav-item {{active == 'familyTree' ? 'active' : false}}" [hidden]="verified != '100'">
+            <li class="nav-item {{active == 'familyTree' ? 'active' : false}}" [hidden]="!verified">
                 <a [routerLink]="[ '/familyTree' ]" class="nav-link">
                     <i class="link-icon" data-feather="users"></i>
                     <span class="link-title">Family Tree</span>
                 </a>
             </li>
 
-            <li class="nav-item {{active == 'referal' ? 'active' : false}}" [hidden]="verified != '100'">
+            <li class="nav-item {{active == 'referal' ? 'active' : false}}" [hidden]="!verified">
                 <a [routerLink]="[ '/referal' ]" class="nav-link">
                     <i class="link-icon" data-feather="link"></i>
                     <span class="link-title">Reference Link </span>
@@ -61,21 +70,21 @@
 
 
 
-            <li class="nav-item nav-category" [hidden]="verified != '100'">Commission</li>
+            <li class="nav-item nav-category" [hidden]="!verified">Commission</li>
 
-            <li class="nav-item {{active == 'salesReport' ? 'active' : false}}" [hidden]="verified != '100'">
+            <li class="nav-item {{active == 'salesReport' ? 'active' : false}}" [hidden]="!verified">
                 <a [routerLink]="[ '/salesReport' ]" class="nav-link">
                     <i class="link-icon" data-feather="bar-chart-2"></i>
                     <span class="link-title">Total Sales </span>
                 </a>
             </li>
-            <li class="nav-item {{active == 'rebate' ? 'active' : false}}" [hidden]="verified != '100'">
+            <li class="nav-item {{active == 'rebate' ? 'active' : false}}" [hidden]="!verified">
                 <a [routerLink]="[ '/rebate' ]" class="nav-link">
                     <i class="link-icon" data-feather="credit-card"></i>
                     <span class="link-title"> Card Rebate </span>
                 </a>
             </li>
-            <li class="nav-item {{active == 'profitSharing' ? 'active' : false}}" [hidden]="verified != '100'">
+            <li class="nav-item {{active == 'profitSharing' ? 'active' : false}}" [hidden]="!verified">
                 <a [routerLink]="[ '/profitSharing' ]" class="nav-link">
                     <i class="link-icon" data-feather="dollar-sign"></i>
                     <span class="link-title">Profit Sharing </span>

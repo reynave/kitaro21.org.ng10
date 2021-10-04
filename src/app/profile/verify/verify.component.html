@@ -313,9 +313,10 @@
                                         <label class="pt-2">ID Number</label>
                                     </td>
                                     <td>
-                                        <input id="idNumber" type="number" class="form-control form-control-sm" name="idNumber" [(ngModel)]="model.idNumber" #idNumber="ngModel" required [disabled]="readonly" [readonly]="readonly">
-                                        <small [hidden]="idNumber.valid || idNumber.pristine" class="text-danger">
-                                            ID Number is required
+                                      
+                                        <input id="ktp" type="text" class="form-control form-control-sm" name="ktp" [(ngModel)]="model.ktp" #ktp="ngModel" required [disabled]="readonly" [readonly]="readonly">
+                                        <small [hidden]="ktp.valid || ktp.pristine" class="text-danger">
+                                            ID is required
                                         </small>
                                     </td>
                                 </tr>
@@ -351,6 +352,8 @@
 
                                          
                                         </div>
+
+                                     
                                       
                                     </td>
                                 </tr>
@@ -373,8 +376,8 @@
                         </div>
 
 
-                    </div>
-
+                    </div> 
+                    <div [innerHTML]="uploadError" class="text-danger text-center"></div>  
                 </div>
 
                 <div class="row">

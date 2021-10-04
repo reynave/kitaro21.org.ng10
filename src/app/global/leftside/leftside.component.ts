@@ -39,7 +39,7 @@ export class LeftsideComponent implements OnInit {
       headers: this.configService.headers()
     }).subscribe(
       data => { 
-  
+      
         this.eaStatus = data['eaStatus'];
         this.verified = data['verified'];
         this.orderCode = data['orderCode']; 

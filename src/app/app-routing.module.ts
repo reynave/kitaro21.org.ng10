@@ -40,6 +40,8 @@ const routes: Routes = [
   
  
 
+  { path: 'profile/verify', component: VerifyComponent, canActivate: [AuthGuard], data:{active:"verify"} },
+
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard], data:{active:"home"} },
   { path: 'eaForm', component: EaFormListComponent, canActivate: [AuthGuard] , data:{active:"eaForm"}},
   { path: 'eaForm/draft/:id', component: EaFormComponent, canActivate: [AuthGuard] , data:{active:"eaForm"}},
