@@ -42,6 +42,7 @@ import { RebateComponent } from './rebate/rebate.component';
 import { MembershipActivationComponent } from './membership/membership-activation/membership-activation.component';
 import { EaFormListComponent } from './ea-form/ea-form-list/ea-form-list.component';
 import { SalesReportComponent } from './sales-report/sales-report.component';
+import { EaPDFComponent } from './ea-form/ea-pdf/ea-pdf.component';
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "right",
@@ -68,7 +69,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     ProfileEditComponent,
     ActivationComponent, 
     ProfitSharingComponent,   
-    InboxComponent, AdminComponent,  VerifyComponent,  ResetPasswordComponent, FamilyTreeComponent, EaFormComponent, ReferalComponent, MembershipComponent, UserComponent, PaymentConfirmComponent, UserDetailComponent, RebateComponent, MembershipActivationComponent, EaFormListComponent, SalesReportComponent, 
+    InboxComponent, AdminComponent,  VerifyComponent,  ResetPasswordComponent, FamilyTreeComponent, EaFormComponent, ReferalComponent, MembershipComponent, UserComponent, PaymentConfirmComponent, UserDetailComponent, RebateComponent, MembershipActivationComponent, EaFormListComponent, SalesReportComponent, EaPDFComponent, 
     
   ],
   imports: [

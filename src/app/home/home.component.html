@@ -79,7 +79,7 @@
             </div>
 
             <div class="subtitle text-center mt-2">
-              <i-feather class="icon" name="chrome"></i-feather> www.coffeetalk.com &nbsp;&nbsp;&nbsp;   <i-feather  class="icon" name="instagram"></i-feather> coffeetalk.indonesia
+              <i-feather class="icon" name="chrome"></i-feather> www.coffeetalk.com &nbsp;&nbsp;&nbsp; <i-feather class="icon" name="instagram"></i-feather> coffeetalk.indonesia
             </div>
 
 
@@ -87,29 +87,31 @@
         </div>
 
         <div class="col-12 mt-3">
-          <b>CARD OF CLUB COFFEETALK INDONESIA</b>
+          <b>COFFEETALK CLUB COMMUNITY CARD INDONESIA</b>
           <div class="card mt-2">
             <table class="table table-sm excel">
               <thead>
                 <tr>
                   <th>No</th>
+                  <th>Order Number</th>
                   <th>Package</th>
                   <th>Qty</th>
-                  <th>Order Code</th>
                   <th>Order Date</th>
+
                   <th>Transaction Code</th>
-                  <th></th>
+                  <th class="text-center">Status</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let x of v2_user_product; let i = index">
                   <td> {{i+1}} </td>
+                  <td> <code>{{x.orderCode}}</code> </td>
                   <td> {{x.name}} </td>
                   <td> {{x.qty}} </td>
                   <td> {{x.input_date | date}} </td>
-                  <td> {{x.orderCode}} </td>
+
                   <td> <code>{{x.transactionCode}} </code> </td>
-                  <td>
+                  <td class="text-center">
 
                     <span [hidden]="x.status != '0' ">
                       <button type="button" (click)="onRemove(x);" [hidden]="user.verified == 0" class="btn btn-danger btn-sm mx-1">Remove</button>
@@ -117,7 +119,9 @@
                       <button type="button" [hidden]="x.transactionCode != ''" (click)="onSubmit(modalPaymentCard,x)" class="btn btn-warning btn-sm">Payment Confirm</button>
 
                     </span>
-
+                    <span [hidden]="x.status != '1' ">Processing </span>
+                    <span [hidden]="x.status != '4' ">Rejected </span>
+                    <span [hidden]="x.status != '100' ">Approved </span>
                   </td>
 
                 </tr>
@@ -125,9 +129,9 @@
               <tfoot [hidden]="user.verified == 0">
                 <tr>
                   <td colspan="6"></td>
-                  <td>
+                  <td class="text-center">
 
-                    <button type="button" (click)="openXl(modalCard);" class="btn btn-dark btn-sm btn-block">Add Card</button>
+                    <button type="button" (click)="openXl(modalCard);" class="btn btn-dark btn-sm">Add Card</button>
                   </td>
                 </tr>
               </tfoot>
@@ -268,6 +272,12 @@
     </div>
     <div class="modal-body">
 
+      <div class="row">
+        <div class="col-12 mb-2 text-center">
+          <div [innerHTML]="bankTransfer"></div>
+        </div>
+      </div>
+
       <div class="row mb-2">
         <div class="col-12 ">
           <div class="mb-2">
@@ -370,9 +380,6 @@
   </form>
 </ng-template>
 
-
-
-
 <ng-template #modalCard let-modal>
   <div class="modal-header">
     <b>Add Card</b>
@@ -381,6 +388,12 @@
     </button>
   </div>
   <div class="modal-body">
+
+    <div class="row">
+      <div class="col-12 mb-2 text-center">
+        <div [innerHTML]="bankTransfer"></div>
+      </div>
+    </div>
 
     <div class="row no-gutters">
       <div class="col-12">

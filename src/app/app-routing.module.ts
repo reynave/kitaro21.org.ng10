@@ -25,6 +25,7 @@ import { RebateComponent } from './rebate/rebate.component';
 import { MembershipActivationComponent } from './membership/membership-activation/membership-activation.component';
 import { EaFormListComponent } from './ea-form/ea-form-list/ea-form-list.component';
 import { SalesReportComponent } from './sales-report/sales-report.component';
+import { EaPDFComponent } from './ea-form/ea-pdf/ea-pdf.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -37,11 +38,13 @@ const routes: Routes = [
   { path: 'admin/loki', component: AdminComponent },
   { path: 'membership/activation', component: MembershipActivationComponent,  },
   
+ 
 
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard], data:{active:"home"} },
   { path: 'eaForm', component: EaFormListComponent, canActivate: [AuthGuard] , data:{active:"eaForm"}},
   { path: 'eaForm/draft/:id', component: EaFormComponent, canActivate: [AuthGuard] , data:{active:"eaForm"}},
-
+  { path: 'eaForm/pdf/:id', component: EaPDFComponent, canActivate: [AuthGuard] , data:{active:"eaForm"}  },
+  
 
   { path: 'familyTree', component: FamilyTreeComponent, canActivate: [AuthGuard] , data:{active:"familyTree"}},
   { path: 'referal', component: ReferalComponent, canActivate: [AuthGuard] , data:{active:"referal"}},

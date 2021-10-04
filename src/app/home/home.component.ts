@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getHttp();
   }
- 
+  bankTransfer : string;
   productName : string;
   selectProduct : any = [];
   getHttp() {
@@ -59,13 +59,13 @@ export class HomeComponent implements OnInit {
     this.http.get<any>(environment.api + "dashboard/index", {
       headers: this.configService.headers()
     }).subscribe(
-      data => {
-        
+      data => { 
         card = data['user']['cardNumber'];
         this.cardNumber = card[0] + card[1] + card[2] + card[3] + " " + card[4] + card[5] + card[6] + card[7] + " " + card[8] + card[9] + card[10] + card[11] + " " + card[12] + card[13] + card[14] + card[15]; 
         this.selectProduct = data['selectProduct'];
         this.user = data['user'];
         this.detail = data['detail'];
+        this.bankTransfer = data['bankTransfer'];
         this.sponsor = data['sponsor'];
         this.reward = data['reward'];
         this.commission = data['commission'];
