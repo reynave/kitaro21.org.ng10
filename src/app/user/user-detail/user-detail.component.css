@@ -1,0 +1,49 @@
+.card {
+    padding: 10px 20px;
+}
+
+.cardx{
+    max-width: 400px;
+}
+.bg-Platinum{
+    background-color: #9a9c99;
+    color: #000;;
+}
+.bg-Infinite{
+    background-color: #3e2d23;
+    color: #fff;;
+}
+.bg-Signature{
+    background-color: #000;
+    color: #fff;;
+}
+
+.rounded-lg{
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.ctitle{
+    font-family: 'Fredoka One', cursive;
+}
+
+.cardx code{
+    font-size: 20px;
+    color: inherit;
+}
+
+.tt01{
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.subtitle{
+    font-size: 10px;
+}
+
+.icon {
+    height: 15px;
+    width: 15px;
+  }
+  

@@ -19,7 +19,7 @@
                             <table class="table table-sm table-borderless">
                                 <tr>
                                     <td class="30%">  Name </td><td width="1%">:</td>
-                                    <td>  {{items.name}}  </td>
+                                    <td>  {{items.name |uppercase}} ({{items.sex == 'F'? 'Female':'Male' }}) </td>
                                 </tr>
                                 <tr>
                                     <td>  Email  </td> <td>:</td>
@@ -29,9 +29,13 @@
                                     <td> ID Number </td> <td>:</td>
                                     <td> {{items.ktp}} </td>
                                 </tr>
+                                <tr>
+                                    <td>  Birthdate  </td> <td>:</td>
+                                    <td>   {{items.birthdate}}  </td>
+                                </tr>
  
                                 <tr>
-                                    <td> Alamat </td> <td>:</td>
+                                    <td> Address </td> <td>:</td>
                                     <td> 
                                         <textarea  class="form-control form-control-sm"  name="address" [(ngModel)]="model.address" required [readonly]="readonly"  #address="ngModel"></textarea>
                                     </td>
@@ -42,7 +46,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td> Kode Pos </td> <td>:</td>
+                                    <td> Postal Code </td> <td>:</td>
                                     <td> <input type="text" class="form-control form-control-sm"  name="postal_code"  [(ngModel)]="model.postal_code"  [readonly]="readonly">   </td>
                                 </tr>
                              
@@ -52,10 +56,10 @@
                                     <td>  <a href="javascript:;" class="btn btn-sm btn-block btn-primary" (click)="open(content)"> Change Password </a> </td>
                                 </tr>
 
-                                <tr>
+                                <!-- <tr>
                                     <td>Status </td> <td>:</td>
                                     <td>  <b>{{notes}}</b></td>
-                                </tr>
+                                </tr> -->
 
                             </table>
  

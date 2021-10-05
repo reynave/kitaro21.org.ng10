@@ -24,7 +24,10 @@
 
             <li class="nav-item {{active == 'verify' ? 'active' : false}}">
                 <a [routerLink]="[ '/profile/verify' ]" class="nav-link">
-                    <i class="link-icon" data-feather="alert-circle"></i>
+                   
+                   <i  [hidden]="validID" class="link-icon" data-feather="check-square"></i> 
+                   <i  [hidden]="!validID" class="link-icon" data-feather="alert-circle"></i> 
+                   
                     <span class="link-title">Verify Data </span>
                 </a>
             </li>
@@ -64,7 +67,7 @@
             <li class="nav-item {{active == 'referal' ? 'active' : false}}" [hidden]="!verified">
                 <a [routerLink]="[ '/referal' ]" class="nav-link">
                     <i class="link-icon" data-feather="link"></i>
-                    <span class="link-title">Reference Link </span>
+                    <span class="link-title">Referral  link </span>
                 </a>
             </li>
 

@@ -328,7 +328,7 @@
                                     <td>
 
 
-                                        <div class="mb-2 border rounded p-2 bg-light">
+                                        <div class="mb-2 border rounded p-2 bg-light" [hidden]="readonly">
                                             <div [hidden]="upload.uploadId">
                                                 <input class="form-control-file form-control form-control-sm mb-2 " id="fileId" type="file" (change)="onFileSelected($event)">
                                                 <button type="button" class="btn btn-block btn-sm btn-dark " (click)="onUploadId();">Upload Valid ID Card or Driving License</button>

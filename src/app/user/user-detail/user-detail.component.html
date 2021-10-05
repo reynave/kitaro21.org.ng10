@@ -9,7 +9,7 @@
         <div class="page-content">
 
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 mb-2">
                     <a href="javascript:;" (click)="back();">Back</a>
                 </div>
 
@@ -48,24 +48,40 @@
                                 <td>Joining Date</td>
                                 <td>: {{user['register_date'] | date : 'd MMM y'}}</td>
                             </tr>
-                            <!-- <tr>
-                            <td>Account Status</td>
-                           
-                            <td> {{verified}}</td>
-                          </tr> -->
-
+                          
                         </table>
                     </div>
                 </div>
 
                 <div class="col-12 col-md-6 mb-3">
-                    <div class="border rounded-sm">
-                        <small>CARD</small>
-                        <div>{{user['community']}}</div>
-                        <div>{{product}}</div>
-                        <div>valid Thru : {{user['expires_date'] | date : 'MM/yy'}}</div>
-                        <div>{{user['id']}}</div>
-                    </div>
+                    
+
+                    <div class="border cardx rounded-lg bg-{{product}} px-5 py-3 ">
+                        <div class="text-center">
+                          <img src="https://www.coffeetalk.co.id/assets/img/logo.png" width="100">
+                          <h1 class="ctitle">{{user['community']}}</h1>
+                        </div>
+            
+                        <div class="text-center">
+                          <div class="tt01">{{product | uppercase }} CLUB</div>
+                          <h3 class="text-monospace"> {{cardNumber}} </h3>
+                        </div>
+            
+                        <div class="row">
+                          <div class="col">
+                            {{user['name'] |  uppercase }}
+                          </div>
+                          <div class="col text-right">
+                            <small>VALID THRU : {{user['expires_date'] | date : 'MM/yy'}} </small>
+                          </div>
+                        </div>
+            
+                        <div class="subtitle text-center mt-2">
+                          <i-feather class="icon" name="chrome"></i-feather> www.coffeetalk.com &nbsp;&nbsp;&nbsp; <i-feather class="icon" name="instagram"></i-feather> coffeetalk.indonesia
+                        </div>
+            
+            
+                      </div>
                 </div>
 
                 <div class="col-12 mb-3">
@@ -99,15 +115,14 @@
             </div>
 
 
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-12 mb-1">
                     <button type="button" class="btn btn-sm btn-secondary">Rebate </button>
                     <button type="button" class="btn btn-sm btn-light mx-1">Performance Fee </button>
                     
                 </div>
             </div>
-            <div class="card p-2">
-
+            <div class="card p-2"> 
                 <table id="example" class="display excel" style="width:100%">
                     <thead>
                         <tr>
@@ -134,9 +149,8 @@
                         </tr>
                     </tbody>
 
-                </table>
-
-            </div>
+                </table> 
+            </div> -->
         </div>
 
         <app-footer></app-footer>

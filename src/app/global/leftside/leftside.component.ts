@@ -33,13 +33,14 @@ export class LeftsideComponent implements OnInit {
   onPayment(){
     window.open( environment.coffeetalk+ 'paymentConfirm?orderCode='+this.orderCode, 'newwindow');
   }
-
+  validID : boolean = false;
   getHttp() { 
     this.http.get<any>(environment.api + "profile/leftSide/", {
       headers: this.configService.headers()
     }).subscribe(
       data => { 
-      
+        console.log(data);
+        this.validID = data['validID'];
         this.eaStatus = data['eaStatus'];
         this.verified = data['verified'];
         this.orderCode = data['orderCode']; 

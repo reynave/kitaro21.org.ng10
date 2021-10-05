@@ -13,7 +13,7 @@
                 <a href="javascript:;" (click)="back();"><small>Back</small></a>
             </div>
             <div class="text-center mb-4">
-                <strong> Statement Letter and Application Application to</strong>
+                <strong> Statement Letter and Activation Application to</strong>
                 <h4>PT KITARO TAKARA INTERNASIONAL </h4>
             </div>
 
@@ -35,6 +35,11 @@
                                 <input type="text"  class="form-control form-control-sm" value="{{id}}" readonly> 
                             </div>
 
+                            <div class="form-group">
+                                <label for="fn">Create Date</label>
+                                <input type="date"  class="form-control form-control-sm" name="registerDate" (change)="onChanges('registerDate',model.registerDate)" [(ngModel)]="model.registerDate" > 
+                            </div>
+ 
                             <div class="form-group">
                                 <label>DIRECT SPONSOR / RESELLER</label>
                                 <input type="text" readonly class="form-control form-control-sm" value="{{parent.name}}">
@@ -62,7 +67,7 @@
                                 <small id="f1" [hidden]="email.valid || email.pristine" class="form-text text-danger">Email is required.</small>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Country</label>
+                                <label for="exampleInputEmail1">Country Code</label>
                                 <select name="countryCode" class="form-control form-control-sm" (change)="onChanges('countryCode',model.countryCode)" [(ngModel)]="model.countryCode">
                                     <option data-countryCode="ID" value="62" selected>Indonesia (+62)</option>
                                     <option data-countryCode="US" value="1">USA (+1)</option>
@@ -303,7 +308,7 @@
                             <hr>
 
                             <div class="mb-2">
-                                <strong>INFORMATION MY TRADING ACCOUNT</strong>
+                                <strong>MY TRADING ACCOUNT INFORMATION</strong>
                             </div>
                             <div class="form-group">
                                 <label for="b1">Server Name </label>
@@ -330,7 +335,7 @@
                                 <div class="col-6">
                                     <div class="form-s1">
                                         <label for="s1">Password Access</label>
-                                        <input type="text" autocomplete="off" (change)="onChanges('password',model.password)" class="form-control form-control-sm" id="s1" required [(ngModel)]="model.password" name="password" #password="ngModel" placeholder="Access Code is required.">
+                                        <input type="text" autocomplete="off" (change)="onChanges('password',model.password)" class="form-control form-control-sm" id="s1" required [(ngModel)]="model.password" name="password" #password="ngModel" placeholder="Password Access is required.">
                                         <small [hidden]="password.valid || password.pristine" class="form-text text-danger">Password is required.</small>
 
                                     </div>
@@ -349,8 +354,9 @@
                                     <div class="form-group">
                                         <label for="z11">Name of TREASURY EA - KITARO</label>
                                         <select class="form-control form-control-sm" id="z11"  (change)="onChanges('eaName',model.eaName)"  required [(ngModel)]="model.eaName" name="eaName" #eaName="ngModel" >
-                                            <option value="KITARO Global Fund (Multiple Entries)"> Global Fund (Multiple Entries)</option>
                                             <option value="KITARO Swiss Prime (Single Entry)">Swiss Prime (Single Entry)</option>
+                                            <option value="KITARO Global Fund (Multiple Entries)"> Global Fund (Multiple Entries)</option>
+                                         
                                         </select>
                                     </div>
 
@@ -400,7 +406,7 @@
 
 
                         <div class="col-12 text-center">
-                            <button type="button" class="btn px-5 m-2">Remove</button>
+                            <button type="button" class="btn px-5 m-2 btn-light">Save</button>
 
                             <button type="submit" class="btn btn-success px-5 m-2" [disabled]="!agreement|| !sign">Submit</button>
                         </div>

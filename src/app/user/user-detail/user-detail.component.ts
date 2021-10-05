@@ -16,7 +16,7 @@ export class UserDetailComponent implements OnInit {
   referral : string;
 
 
-
+  cardNumber  : string;
   loading:boolean = true;
   user : any = [];
   detail : any = [];
@@ -48,6 +48,7 @@ export class UserDetailComponent implements OnInit {
       headers: this.configService.headers()
     }).subscribe(
       data => {   
+        var card;
         $(document).ready(function () {
           $('#example').DataTable({ 
             order: [[ 2, "asc" ]],
@@ -56,6 +57,8 @@ export class UserDetailComponent implements OnInit {
         }); 
  
         this.user = data['user'];
+        card = data['user']['cardNumber'];
+        this.cardNumber = card[0] + card[1] + card[2] + card[3] + " " + card[4] + card[5] + card[6] + card[7] + " " + card[8] + card[9] + card[10] + card[11] + " " + card[12] + card[13] + card[14] + card[15]; 
         this.detail = data['detail'];
         this.sponsor =data['sponsor'];
         this.reward = data['reward'];

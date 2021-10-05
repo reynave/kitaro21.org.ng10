@@ -21,7 +21,9 @@ export class Model {
     public accessCode: string,
     public eaName: string,
     public amount: number,
-    public formTypeId: string,
+    public formTypeId: string, 
+    public registerDate: string, 
+    
   ) { }
 }
 
@@ -41,7 +43,9 @@ export class EaFormComponent implements OnInit {
   //http://definitelytyped.org/docs/signature_pad--signature_pad/classes/signaturepad.html#signaturepadoptions
   loading: boolean = true;
   parent: any = [];
-  model: any = new Model("", "", "", "", "62", "", "", "", "", "", "", 1000, "");
+  date = new Date();
+
+  model: any = new Model("", "", "", "", "62", "", "", "", "", "", "KITARO Global Fund (Multiple Entries)", 1000, "","");
   status: number = 1;
   item: any = [];
   id: string;
@@ -54,6 +58,7 @@ export class EaFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.getHttp();
+    console.log( );
     console.log(this.activeRoute.snapshot.params['id']);
   }
   getHttp() {
@@ -81,6 +86,7 @@ export class EaFormComponent implements OnInit {
             data['items']['eaName'],
             data['items']['amount'],
             data['items']['formTypeId'],
+            data['items']['registerDate'],
           );
           this.status = data['status'];
           this.id = data['id'];

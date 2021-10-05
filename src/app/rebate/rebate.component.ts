@@ -15,6 +15,7 @@ export class RebateComponent implements OnInit {
   items: any = [];
   loading: boolean = false;
   period: string;
+  admin : string = environment.admin;
   constructor(
     private router: Router,
     private http: HttpClient,

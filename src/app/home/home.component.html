@@ -18,7 +18,7 @@
               </tr>
               <tr>
                 <td>Name</td>
-                <td>: <b> {{user['name']}}</b></td>
+                <td>: <b> {{user['name'] | uppercase}}</b></td>
               </tr>
               <tr>
                 <td> Community Group</td>
@@ -30,7 +30,7 @@
               </tr>
               <tr>
                 <td>Reseller</td>
-                <td>: {{detail['sponsor']}} (<code class="text-dark">{{detail['idSponsor']}}</code>)</td>
+                <td>: {{detail['sponsor'] | uppercase}} (<code class="text-dark">{{detail['idSponsor']}}</code>)</td>
               </tr>
               <tr>
                 <td> Membership Due Date </td>
@@ -71,7 +71,7 @@
 
             <div class="row">
               <div class="col">
-                {{user['name']}}
+                {{user['name'] |  uppercase }}
               </div>
               <div class="col text-right">
                 <small>VALID THRU : {{user['expires_date'] | date : 'MM/yy'}} </small>
@@ -106,7 +106,7 @@
                 <tr *ngFor="let x of v2_user_product; let i = index">
                   <td> {{i+1}} </td>
                   <td> <code>{{x.orderCode}}</code> </td>
-                  <td> {{x.name}} </td>
+                  <td> {{x.name }} </td>
                   <td> {{x.qty}} </td>
                   <td> {{x.input_date | date}} </td>
 
