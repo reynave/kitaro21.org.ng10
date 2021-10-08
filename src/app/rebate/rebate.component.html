@@ -23,11 +23,11 @@
                     <tbody>
                         <tr *ngFor="let x of items;let i = index">
                             <td> {{i+1}} </td>
-                            <td> {{x.input_date | date}}  - {{x.input_date | date}}</td>  
+                            <td> {{x.periodDate | date}}  - {{x.periodDateEnd | date}}</td>  
                             <td class="text-right"> {{x.amount | number}} </td>
                             <td class="text-center"> 
-                                
-                                <a class="btn btn-sm btn-primary py-0" href="{{admin}}{{x.urlDetail}}" target="_blank">PDF</a>
+                               
+                                <a class="btn btn-sm btn-primary py-0" title="{{admin}}{{x.urlDetail}}" href="{{admin}}{{x.urlDetail}}" target="_blank">PDF</a>
                             </td>
                             
                         </tr>
