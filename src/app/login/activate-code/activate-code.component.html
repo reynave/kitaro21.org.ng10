@@ -1,0 +1,48 @@
+<div class="main-wrapper">
+    <div class="page-wrapper full-page">
+        <div class="page-content d-flex align-items-center justify-content-center">
+
+            <div class="row w-100 mx-0 auth-page">
+                <div class="col-md-8 col-xl-6 mx-auto">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-md-4 pr-md-0">
+                                <div class="auth-left-wrapper"> </div>
+                            </div>
+                            <div class="col-md-8 pl-md-0">
+
+                                <div class="auth-form-wrapper p-4">
+                                    <h5 class="mb-3">Activate Account Via Code</h5>
+
+                                    <div class="form-group mt-2">
+                                        <label for="sendEmail">Your Registered Email Address</label>
+
+                                        <div class="row no-gutters">
+                                            <div class="col-9">
+                                                <input type="email" id="sendEmail" class="form-control" placeholder="Email address" [(ngModel)]="email" name="sendEmail" email required autofocus>
+                                            </div>
+                                            <div class="col-3">
+                                                <button (click)="onGo();" class="btn btn-primary btn-block mx-1" [disabled]="!email" type="button">Send</button>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group my-2">
+                                            <div class="alert alert-warning" role="alert" [hidden]="!note">
+                                                {{note}}
+                                            </div>
+                                        </div>
+
+
+                                        <a href="javascript:;" (click)="back();" class="d-block mt-3 text-muted"> <small>Back</small> </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

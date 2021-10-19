@@ -26,6 +26,7 @@ import { MembershipActivationComponent } from './membership/membership-activatio
 import { EaFormListComponent } from './ea-form/ea-form-list/ea-form-list.component';
 import { SalesReportComponent } from './sales-report/sales-report.component';
 import { EaPDFComponent } from './ea-form/ea-pdf/ea-pdf.component';
+import { ActivateCodeComponent } from './login/activate-code/activate-code.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -34,6 +35,8 @@ const routes: Routes = [
   { path: 'paymentConfirm', component:  PaymentConfirmComponent },
   { path: 'login', component: LoginComponent },
   { path: 'login/resetpassword', component: ResetPasswordComponent },
+  { path: 'login/activateCode', component: ActivateCodeComponent },
+  
   { path: 'activation/:token', component: ActivationComponent },
   { path: 'admin/loki', component: AdminComponent },
   { path: 'membership/activation', component: MembershipActivationComponent,  },

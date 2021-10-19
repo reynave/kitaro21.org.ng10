@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   note: any;
   forgetPassword :boolean = false;
   sendEmail : string;
+  coffeetalk : string = environment.coffeetalk;
   constructor( 
     private http: HttpClient,
     private configService: ConfigService,
